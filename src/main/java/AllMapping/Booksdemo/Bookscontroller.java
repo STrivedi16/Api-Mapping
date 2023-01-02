@@ -65,4 +65,19 @@ public class Bookscontroller {
 
 	}
 
+	@GetMapping("findby/{bookname}")
+	public Iterable<AllMapping.Booksdemo.Booksinfo> findbyname(@PathVariable("bookname") String name) {
+
+		ArrayList<Booksinfo> list = new ArrayList<>();
+
+		List<Booksinfo> bo = br.findByName(name);
+
+		for (int i = 0; i < bo.size(); i++) {
+			list.add(bo.get(i));
+		}
+
+		return list;
+
+	}
+
 }
